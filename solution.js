@@ -1,4 +1,4 @@
-/* 
+/*
 EX 1 UPVOTES DOWNVOTES
 
 Given an object containing counts of both upVotes and downVotes, return what vote count should be displayed. This is calculated by subtracting the number of downVotes from upVotes.
@@ -8,7 +8,7 @@ getVoteCount({ upVotes: 2, downVotes: 33 }) ➞ -31
 getVoteCount({ upVotes: 132, downVotes: 132 }) ➞ 0
 Notes
 - You can expect only positive integers for vote counts. */
-console.log(`******01******`);
+console.log(`******01-Method-1******`);
 function getVoteCount(vote) {
   console.log(vote.upVotes - vote.downVotes);
 }
@@ -17,8 +17,24 @@ getVoteCount({ upVotes: 13, downVotes: 0 });
 getVoteCount({ upVotes: 2, downVotes: 33 });
 getVoteCount({ upVotes: 132, downVotes: 132 });
 
-/* 
-EX 2 VOLUME OF A BOX 
+console.log(`******01-Method-2******`);
+
+let myObj = {
+  getVoteCount: function(passedObj) {
+  return passedObj.upVotes - passedObj.downVotes
+
+  }
+}
+
+let vote1 = myObj.getVoteCount({ upVotes: 13, downVotes: 0 });
+console.log(vote1);
+let vote2 = myObj.getVoteCount({ upVotes: 2, downVotes: 33 });
+console.log(vote2);
+let vote3 = myObj.getVoteCount({ upVotes: 132, downVotes: 132 });
+console.log(vote3);
+
+/*
+EX 2 VOLUME OF A BOX
 Create a function that takes an object argument sizes (contains width, length, height keys) and returns the volume of the box.
 Examples
 volumeOfBox({ width: 2, length: 5, height: 1 }) ➞ 10
@@ -31,19 +47,21 @@ Notes
  */
 console.log(`******02******`);
 function volumeOfBox(obj) {
-  console.log(obj.width * obj.length * obj.height);
+  return obj.width * obj.length * obj.height;
 }
-
-volumeOfBox({ width: 2, length: 5, height: 1 });
-volumeOfBox({ width: 4, length: 2, height: 2 });
-volumeOfBox({ width: 2, length: 3, height: 5 });
-/* EX 3 LUKE I AM YOUR... 
+const volume1 = volumeOfBox({ width: 2, length: 5, height: 1 });
+console.log(volume1);
+const volume2 = volumeOfBox({ width: 4, length: 2, height: 2 });
+console.log(volume2);
+const volume3 = volumeOfBox({ width: 2, length: 3, height: 5 });
+console.log(volume3);
+/* EX 3 LUKE I AM YOUR...
 Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
 | Person |	Relation |
 | --- | ----------- |
 | Darth Vader |	father |
 | Leia |	sister |
-| Han |	brother in law |
+| Han |	brother in law |   b vb        v
 | R2D2	| droid |
 Examples
 relationToLuke("Darth Vader") ➞ "Luke, I am your father."
@@ -52,24 +70,31 @@ relationToLuke("Han") ➞ "Luke, I am your brother in law."
  */
 console.log(`******03******`);
 
-const lukeSkywalker = {
-  firstName: "Luke",
-  lastName: "Skywalker",
-  "Darth Vader": "father",
-  leia: "sister",
-  han: "brother in law ",
-  R2D2: "droid",
-};
-
 function relationToLuke(str) {
-  if (str === "Darth Vader") console.log(`Luke, I am your father`);
-  if (str === "Leia") console.log(`Luke, I am your sister`);
-  if (str === "Han") console.log(`Luke, I am your brother in law`);
+  
+
+      let relObj = {
+    firstName : 'Luke',
+      "Darth Vader": "father",
+      Leia: "sister",
+      Han: "brother in law",
+      R2D2: "droid",
+
+    getRelation: function () {
+      console.log(`${this.firstName}, I am your ` + relObj[str]);
+    },
+  };
+
+  relObj.getRelation();
 }
 
 relationToLuke("Darth Vader");
 relationToLuke("Leia");
 relationToLuke("Han");
+
+
+
+
 
 /* 
 EX 4 SPORTS PLAYER --------------------------------------------------------------------
